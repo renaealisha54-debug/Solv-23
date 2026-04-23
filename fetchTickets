@@ -1,0 +1,9 @@
+import { useQuery } from "@tanstack/react-query";
+import { fetchTickets } from "@/services/ticket-service";
+
+export const useTickets = (status?: string) => {
+  return useQuery({
+    queryKey: ["tickets", status],
+    queryFn: () => fetchTickets(status),
+  });
+};
